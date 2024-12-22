@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1/Lab1.csproj": {}
+    "C:\\Users\\USER\\OneDrive\\Рабочий стол\\Semen_Labs\\Semen_Labs\\Lab1\\Lab1.csproj": {}
   },
   "projects": {
-    "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1/Lab1.csproj": {
+    "C:\\Users\\USER\\OneDrive\\Рабочий стол\\Semen_Labs\\Semen_Labs\\Lab1\\Lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1/Lab1.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Рабочий стол\\Semen_Labs\\Semen_Labs\\Lab1\\Lab1.csproj",
         "projectName": "Lab1",
-        "projectPath": "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1/Lab1.csproj",
-        "packagesPath": "/Users/dimazanuda/.nuget/packages/",
-        "outputPath": "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1/obj/",
+        "projectPath": "C:\\Users\\USER\\OneDrive\\Рабочий стол\\Semen_Labs\\Semen_Labs\\Lab1\\Lab1.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\OneDrive\\Рабочий стол\\Semen_Labs\\Semen_Labs\\Lab1\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/dimazanuda/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -73,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
