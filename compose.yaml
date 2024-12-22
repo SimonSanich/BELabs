@@ -1,0 +1,9 @@
+﻿services:
+  Lab_1:
+    image: lab_1
+    build:
+      context: .
+      dockerfile: Lab1/Dockerfile
+    ports:
+      - "5123:8080"
+

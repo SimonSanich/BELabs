@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  Lab_1:
+    build:
+      context: "/Users/dimazanuda/RiderProjects/Semen_Labs"
+      dockerfile: "Lab1/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Lab1.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "lab_1:dev"
+    ports: []
+    volumes:
+    - "/Users/dimazanuda/RiderProjects/Semen_Labs/Lab1:/app:rw"
+    - "/Users/dimazanuda/RiderProjects/Semen_Labs:/src:rw"
+    - "/Users/dimazanuda/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"
