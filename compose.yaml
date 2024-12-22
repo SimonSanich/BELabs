@@ -14,3 +14,11 @@
       dockerfile: Lab2/Dockerfile
     ports:
       - "5124:8080"
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "Lab3"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "12345"
+    ports:
+      - "5435:5432"

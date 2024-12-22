@@ -2,11 +2,10 @@
 
 namespace Lab2.Models
 {
-    public class Category
+    public class Currency
     {
-
-        [Key]
         public int Id { get; set; }
-        public required string Name { get; set; } = string.Empty;
+        [Required]
+        public string Name { get; set; }
     }
 }

@@ -7,11 +7,6 @@ namespace Lab2.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private static List<Category> categories = new List<Category>
-    {
-        new Category { Id = 1, Name = "Category1"},
-        new Category { Id = 2, Name = "Category2"},
-    };
 
         [HttpGet("/category")]
         public ActionResult<Category> GetCategory(string categoryName)

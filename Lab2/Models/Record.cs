@@ -1,12 +1,25 @@
-﻿namespace Lab2.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Lab2.Models
 {
     public class Record
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public int CategoryId { get; set; }
+        [Key]
+        public Guid Id { get; set; }
+
+        [ForeignKey("User")]
+        public required int UserId { get; set; }
+        [ForeignKey("Category")]
+        public required int CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }
         public decimal TotalAmount { get; set; }
+
+        public User User { get; set; }
+        public Category Category { get; set; }
+        public int? CurrencyId { get; set; }
+        [ForeignKey("CurrencyId")]
+        public virtual Currency Currency { get; set; }
 
     }
 }

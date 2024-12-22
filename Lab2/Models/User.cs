@@ -1,10 +1,15 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab2.Models
 {
     public class User
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        [Key]
+        public Guid Id { get; set; }
+        public required string Name { get; set; } = string.Empty;
+        public int? CurrencyId { get; set; }
+        [ForeignKey("CurrencyId")]
+        public virtual Currency Currency { get; set; }
     }
 }
