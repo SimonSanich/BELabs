@@ -1,22 +1,21 @@
 ﻿using Lab2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab2.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController(AppDbContext context) : ControllerBase
     {
-        private static List<User> users = new List<User>
-    {
-        new User { Id = 1, Name = "User1"},
-        new User { Id = 2, Name = "User2"}
-    };
 
         [HttpGet("/user/{id}")]
-        public ActionResult<User> GetUserById(int id)
+        public async Task<ActionResult> GetUserById(Guid id)
         {
-            var user = users.FirstOrDefault(p => p.Id == id);
+            var user = await context.Users
+                .Where(u => u.Id == id)
+                .FirstOrDefaultAsync();
+                
             if (user == null)
             {
                 return NotFound();
@@ -25,33 +24,58 @@ namespace Lab2.Controllers
         }
 
         [HttpDelete("/user/{id}")]
-        public IActionResult DeleteUserById(int id)
+        public async Task<IActionResult> DeleteUserById(Guid id)
         {
-            var user = users.FirstOrDefault(p => p.Id == id);
+            var user = context.Users
+                .FirstOrDefault(p => p.Id == id);
+
             if (user == null)
             {
                 return NotFound();
             }
-            users.Remove(user);
+            context.Remove(user);
+            await context.SaveChangesAsync();
             return NoContent();
         }
 
         [HttpPost("/user")]
-        public IActionResult AddUser(string userName)
+        public async Task<IActionResult> AddUser(string userName, int? currencyId)
         {
-            User user = new User()
+            var isUser = await context.Users
+                .AnyAsync(u => u.Name == userName);
+            if (isUser)
+            {
+                return BadRequest("User with such name exists");
+            }
+
+            var isCurrency = await context.Currency
+                .AnyAsync(u => u.Id ==  currencyId);
+
+            if (!isCurrency)
+            {
+                return BadRequest("Currence doesnt exist");
+            }
+
+            var user = new User()
             {
                 Name = userName,
+                CurrencyId = currencyId
             };
-            user.Id = users.Max(p => p.Id) + 1;
-            users.Add(user);
+
+            await context.Users.AddAsync(user);
+            await context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
 
         [HttpGet("/users")]
-        public ActionResult<IEnumerable<User>> GetAllUsers()
+        public async Task<ActionResult> GetAllUsers()
         {
+            var users = await context.Users
+                .ToListAsync();
+
             return Ok(users);
+                
         }
     }
 }

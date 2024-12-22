@@ -9,7 +9,7 @@ namespace Lab2.Models
         public Guid Id { get; set; }
 
         [ForeignKey("User")]
-        public required int UserId { get; set; }
+        public required Guid UserId { get; set; }
         [ForeignKey("Category")]
         public required int CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }
