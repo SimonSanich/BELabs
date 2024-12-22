@@ -7,3 +7,10 @@
     ports:
       - "5123:8080"
 
+  Lab_2:
+    image: lab_2
+    build:
+      context: .
+      dockerfile: Lab2/Dockerfile
+    ports:
+      - "5124:8080"

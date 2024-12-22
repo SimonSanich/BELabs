@@ -10,7 +10,7 @@ namespace Lab2.Controllers
         private static List<Category> categories = new List<Category>
     {
         new Category { Id = 1, Name = "Category1"},
-        new Category { Id = 2, Name = "Category2"}
+        new Category { Id = 2, Name = "Category2"},
     };
 
         [HttpGet("/category")]

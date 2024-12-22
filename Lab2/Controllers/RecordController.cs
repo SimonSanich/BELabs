@@ -50,7 +50,7 @@ namespace Lab2.Controllers
             };
             record.Id = records.Max(p => p.Id) + 1;
             records.Add(record);
-            return CreatedAtAction(nameof(GetRecordById), new { id = record.Id }, record);
+            return Ok(record);
         }
 
         [HttpGet("/record")]
