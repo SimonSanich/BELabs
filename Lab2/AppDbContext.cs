@@ -15,17 +15,6 @@ namespace Lab2
             
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-            modelBuilder.Entity<Currency>()
-                .HasData(new Currency
-                {
-                    Id = 1,
-                    Name = "USD"
-                });
-
-            base.OnModelCreating(modelBuilder);
-        }
+        
     }
 }
